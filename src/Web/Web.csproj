@@ -80,6 +80,9 @@
     <Content Include="Content\Layout.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\ZeroClipboard.swf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\Guid.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

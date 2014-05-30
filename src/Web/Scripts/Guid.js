@@ -26,4 +26,14 @@
 
     $('#generate_new').click();
     $('#generate_upper_new').click();
+
+    // Configure ZeroClipboard for all .btn-copy buttons to allow copying to the clipboard
+    var client = new ZeroClipboard($('.btn-copy'));
+    client.on('ready', function (readyEvent) {
+        client.on('complete', function (event) {
+            // `this` === `client`
+            // `event.target` === the element that was clicked
+            event.target.style.display = "none";
+        });
+    });
 });
