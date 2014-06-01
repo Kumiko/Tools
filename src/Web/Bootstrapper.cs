@@ -48,6 +48,10 @@ namespace Kumiko.Tools.Web
 
             nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Content", "Content"));
             nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts", "Scripts"));
+
+            // A redirect for this file is necessary as ZeroClipboard doesn't like our custom path and still tries to request /ZeroClipboard.swf
+            // instead of our custom path, which causes a 404 error.
+            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddFile("/ZeroClipboard.swf", "Content/ZeroClipboard.swf"));
         }
 
         /// <summary>
