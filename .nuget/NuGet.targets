@@ -40,20 +40,12 @@
     <PropertyGroup>
         <PackagesProjectConfig>packages.$(MSBuildProjectName.Replace(' ', '_')).config</PackagesProjectConfig>
     </PropertyGroup>
-
-    <Choose>
-        <When Condition="Exists('$(PackagesProjectConfig)')">
-            <PropertyGroup>
-                <PackagesConfig>$(PackagesProjectConfig)</PackagesConfig>
-            </PropertyGroup>
-        </When>
-        <When Condition="Exists('packages.config')">
-            <PropertyGroup>
-                <PackagesConfig>packages.config</PackagesConfig>
-            </PropertyGroup>
-        </When>
-    </Choose>
-    
+		<PropertyGroup Condition="Exists('$(PackagesProjectConfig)')">
+				<PackagesConfig>$(PackagesProjectConfig)</PackagesConfig>
+		</PropertyGroup>
+		<PropertyGroup Condition="Exists('packages.config')">
+				<PackagesConfig>packages.config</PackagesConfig>
+		</PropertyGroup>
     <PropertyGroup>
         <!-- NuGet command -->
         <NuGetExePath Condition=" '$(NuGetExePath)' == '' ">$(NuGetToolsPath)\NuGet.exe</NuGetExePath>
